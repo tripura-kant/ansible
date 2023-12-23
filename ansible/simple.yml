@@ -5,6 +5,6 @@
   tasks: 
         - name: User account creation
           user:
-              name: monu
+              name: monu1
               uid: 4045
               state: present

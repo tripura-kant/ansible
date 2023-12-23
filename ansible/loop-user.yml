@@ -1,0 +1,19 @@
+--- 
+- hosts: ec2_instances
+  become: true
+  become_user: root
+  tasks: 
+    - name: User account creation
+      user:
+        name: "{{ item.name }}"
+        groups: "{{ item.groups }}"
+      loop:
+        - name: amit
+          groups: india
+        - name: amit4
+          groups: pak
+        - name: amit2
+          groups: sl
+        - name: amit3
+          groups: china
+

@@ -1,0 +1,13 @@
+--- 
+- hosts: ec2_instances
+  become: true
+  become_user: root
+  tasks: 
+        - name: Apache and ftp running
+          service:
+            name: "{{ item }}"
+            state: started
+            enabled: true                    
+          loop:
+            - httpd
+            - vsftpd

@@ -1,0 +1,15 @@
+--- 
+- hosts: ec2_instances
+  become: true
+  become_user: root
+  vars:
+    mail_services:
+      - httpd
+      - vsftpd
+  tasks: 
+        - name: Apache and ftp running
+          service:
+            name: "{{ item }}"
+            state: stopped
+            enabled: true                    
+          loop: "{{ mail_services }}"

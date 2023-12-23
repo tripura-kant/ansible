@@ -5,5 +5,7 @@ ansible --list-hosts all -i ./ansible_hosts
 
 ansible-playbook --syntax-check simple.yml
 
+ansible-playbook --vault-id @prompt usercreat.yml -v
+
 
 ## https://www.udemy.com/course/red-hat-system-administration-lll/learn/lecture/18731064#overview

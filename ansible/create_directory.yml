@@ -1,0 +1,17 @@
+--- 
+- hosts: ec2
+  become: true
+  become_user: root
+  vars:
+        remote_dir: /etc/ansible/facts.d
+        facts_file: custom.facts
+  tasks: 
+        - name: cretae a remote dir
+          file:
+              state: directory
+              recurse: yes
+              path: "{{ remote_dir }}"
+        - name: copy_file
+          copy:
+                src: "{{ facts_file }}"
+                dest: "{{ remote_dir }}"

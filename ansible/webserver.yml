@@ -1,0 +1,18 @@
+--- 
+- hosts: ec2_instances
+  become: true
+  become_user: root
+  tasks: 
+        - name: Installation of apache package
+          yum:
+              name: httpd
+              state: present
+        - name: creation of index package
+          copy:
+              content: "Welcome to apache package created by Tripura kant"
+              dest: /var/www/html/index.html
+        - name: Http server start
+          service:
+            name: httpd
+            state: started
+            enabled: true                    

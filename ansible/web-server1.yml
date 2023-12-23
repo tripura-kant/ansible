@@ -1,0 +1,41 @@
+--- 
+- hosts: ec2_instances
+  become: true
+  become_user: root
+  tasks: 
+        - name: Installation of httpd and firewalld
+          yum:
+              name: 
+              - httpd
+              - firewalld
+              state: present
+        - name: creation of index package
+          copy:
+              content: "Welcome to apache package & firewalld -  created by Tripura kant- 2"
+              dest: /var/www/html/index.html
+        - name: Firewalld started
+          service:
+            name: firewalld
+            state: started
+            enabled: true
+        - name: Firewalld permits httpd service
+          firewalld:
+            service: http
+            permanent: true
+            state: enabled
+            immediate: yes
+        - name: httpd service start & enabled
+          service:
+            name: httpd
+            state: started
+            enabled: true
+- name: Test Intranet web server connectivity
+  hosts: localhost
+  become: no
+  tasks: 
+    - name: connect to server
+      uri:
+        url: http://54.146.157.142/  
+        return_content: yes
+        status_code: 200                     
+

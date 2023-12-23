@@ -1,0 +1,15 @@
+--- 
+- hosts: localhost
+  tasks:
+    - name: Looping echo messages
+      shell: "echo This is my item: {{ item }}"
+      loop:
+          - one
+          - two
+          - three
+          - four
+      register: echo_results
+
+
+    - name: Looping echo messages
+      debug: var=echo_results

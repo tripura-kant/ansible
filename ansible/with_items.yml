@@ -1,0 +1,17 @@
+--- 
+- hosts: ec2
+  become: true
+  become_user: root
+  vars: 
+    date: 
+      - user1
+      - user2
+      - user3
+      - user4
+    tasks:
+        - name: "with_items"
+          debug:
+            msg: "{{ item }}"
+          with_items: "{{ data }}"
+
+

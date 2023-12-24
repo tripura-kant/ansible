@@ -1,0 +1,12 @@
+---
+- hosts: ec2
+  become: true
+  become_user: root
+  gather_facts: yes
+  tasks:
+    - name: "Installation of postfix when enough space on root FS"
+      yum:
+        name: postfix
+        state: latest
+      loop: "{{ ansible_mounts }}"
+      when: item.mount == "/" and item.size_available > 300

@@ -1,0 +1,12 @@
+--- 
+- hosts: ec2
+  become: true
+  become_user: root
+  vars: 
+    my_service: 
+    tasks:
+        - name: "{{ my_service }} package Installation"
+          yum:
+            name: "{{ my_service }}"
+            state: latest
+          when: my_service is defined  

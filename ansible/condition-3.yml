@@ -1,0 +1,12 @@
+---
+- hosts: ec2
+  become: true
+  become_user: root
+  vars:
+    my_service: postfix
+  tasks:
+    - name: "{{ my_service }} Installation"
+      yum:
+        name: "{{ my_service }}"
+        state: latest
+      when: ansible_distribution_version == "9.3"

@@ -14,4 +14,23 @@
         command: ls -lrtZ /tmp/newfile
         register: results_output
       - debug: msg="{{ results_output }}"  
-         
+
+      - name: Add text to existing file
+        lineinfile: 
+          path: /tmp/newfile
+          line:  This file is already by tk
+          state: present   
+      - name: Add block of text to existing file
+        blockinfile:
+          path: /tmp/newfile
+          block: |
+            This is critical file
+            i am frok 
+            ASa
+            aSa
+            aS
+          state: present 
+      - name: Check the status of file
+        command: cat /tmp/newfile
+        register: results_output1
+      - debug: msg="{{ results_output1 }}"           

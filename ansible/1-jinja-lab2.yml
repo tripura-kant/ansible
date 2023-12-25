@@ -1,0 +1,14 @@
+--- 
+- hosts: ec2
+  become: true
+  become_user: root
+  vars:
+    admin_owner: monu515372@gmail.com
+  tasks:
+      - name: configure /etc/motd
+        template:
+          src: example7.j2
+          dest: /etc/motd
+          owner: root
+          group: root
+          mode: 0644

@@ -1,6 +1,6 @@
 [ec2_instances]
-server-1 ansible_host=52.23.198.108 ansible_user=ec2-user ansible_ssh_private_key_file=/Users/tripurakant/Downloads/sadasdasd.pem
-server-2 ansible_host=34.203.36.43 ansible_user=ec2-user ansible_ssh_private_key_file=/Users/tripurakant/Downloads/sadasdasd.pem
+server-1 ansible_host=3.85.81.133 ansible_user=ec2-user ansible_ssh_private_key_file=/Users/tripurakant/Downloads/sadasdasd.pem
+server-2 ansible_host=3.82.19.245 ansible_user=ec2-user ansible_ssh_private_key_file=/Users/tripurakant/Downloads/sadasdasd.pem
 
 [ec2_instance-1]
 server-1

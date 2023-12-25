@@ -1,0 +1,20 @@
+--- 
+- hosts: ec2
+  become: true
+  become_user: root
+  tasks:
+      - name: Restart a service
+        service:
+          name: notaservice
+          state: restarted
+        ignore_errors: yes  
+      - name: copy a script
+        copy: 
+          src: /tmp/create.sh
+          dest: /tmp/
+      - name: run the script
+        shell: sh /tmp/create.sh
+        register: command_result
+        #failed_when: " 'password missing' in command_result.stdout'"
+      - debug: msg="{{ command_result.stdout }}"  
+

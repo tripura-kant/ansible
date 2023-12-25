@@ -1,0 +1,34 @@
+--- 
+- hosts: ec2
+  become: true
+  become_user: root
+  tasks:
+      - name: configure /etc/motd
+        template:
+          src: example8.j2
+          dest: /etc/motd
+          owner: root
+          group: root
+          mode: 0644
+      - name: verify /etc/motd
+        stat:
+          path: /etc/motd
+        register: motd  
+      - name: display result /etc/motd
+        debug:
+      - name: copy  /tmp/fileissue
+        copy:
+          src: /tmp/fileissue
+          dest: /tmp
+          owner: root
+          group: root
+          mode: 0644
+      - name: ensure symbolic link /etc/motd
+        file:
+          src: /tmp/fileissue
+          dest: /tmp/fileissue.net
+          state: link
+          owner: root
+          group: root
+          force: yes
+                                     

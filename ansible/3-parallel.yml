@@ -1,6 +1,7 @@
 --- 
-- hosts: ec2_instance-2
+- hosts: ec2
   become: true
+  serial: 1
   become_user: root
   tasks: 
         - name: Installation of httpd and firewalld

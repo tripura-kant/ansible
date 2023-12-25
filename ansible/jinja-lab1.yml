@@ -1,0 +1,12 @@
+--- 
+- hosts: ec2
+  become: true
+  become_user: root
+  vars:
+    variable1: 'Heloooo'
+    variable2: 'My first playbook using template'
+  tasks:
+      - name: Basic template example
+        template:
+          src: jinja.j2
+          dest: /tmp/output.txt

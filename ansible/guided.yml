@@ -1,0 +1,17 @@
+--- 
+- hosts: ec2
+  become: true
+  become_user: root
+  tasks:
+      - name: Ensure SELINUX context to default
+        file:
+          path: /tmp/newfile
+          seuser: _default
+          serole: _default
+          setype: _default
+          selevel: _default
+      - name: Check the status of file
+        command: ls -lrtZ /tmp/newfile
+        register: results_output
+      - debug: msg="{{ results_output }}"  
+         

@@ -1,0 +1,14 @@
+--- 
+- hosts: ec2
+  become: true
+  become_user: root
+  tasks:
+      - name: Create a file and set permissions
+        file:
+          path: /tmp/newfile
+          owner: root
+          group: root
+          mode: 0640
+          state: touch
+
+

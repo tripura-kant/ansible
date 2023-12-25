@@ -15,6 +15,6 @@
       - name: run the script
         shell: sh /tmp/create.sh
         register: command_result
-        #failed_when: " 'password missing' in command_result.stdout'"
+        #failed_when: "'password missing' in command_result.stdout"
       - debug: msg="{{ command_result.stdout }}"  
 

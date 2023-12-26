@@ -1,7 +1,7 @@
 --- 
 - hosts: ec2
   become: true
-  serial: 1
+  serial: 4
   become_user: root
   tasks: 
         - name: Installation of httpd and firewalld

@@ -1,0 +1,24 @@
+---
+- hosts: ec2
+  become: true
+  become_user: root
+  gather_facts: yes
+  tasks:
+    - name: Include the env task file
+      include_tasks: tasks/environment.yaml
+      vars:
+        package: httpd
+        service: httpd
+      when: ansible_facts['os_family'] == 'RedHat'  
+    - name: import the firewall task file
+      import_tasks: tasks/filewall.yaml
+      vars:
+        firewall_pkg: firewalld
+        firewall_svc: firewalld
+        rule: 
+          - http
+          - https
+    - name: Create index file
+      import_tasks: tasks/index.yml
+      vars:
+        file: /var/www/html/index.html

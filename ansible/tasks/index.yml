@@ -1,0 +1,5 @@
+
+    - name: Create index.html file
+      copy:
+        content: "{{ ansible_facts['fqdn'] }} is the automation server"
+        dest: "{{ file }}"

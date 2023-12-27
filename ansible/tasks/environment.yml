@@ -1,0 +1,15 @@
+---
+- hosts: ec2
+  become: true
+  become_user: root
+  gather_facts: yes
+  tasks:
+    - name: Get Posstfix server status
+      command: /usr/bin/systemctl is-active postfix
+      ignore_errors: true
+      register: result
+    - name: Restart Apache HTTPD based on Postfix status
+      service: 
+        name: httpd
+        state: started
+      when: result.rc == 0  

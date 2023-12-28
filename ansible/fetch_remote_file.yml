@@ -1,5 +1,5 @@
 --- 
-- hosts: ec2_instance-1
+- hosts: ec2
   become: true
   become_user: root
   tasks:

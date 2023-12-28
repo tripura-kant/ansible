@@ -3,6 +3,7 @@
 - name: Configure Apache on prod hosts
   hosts: prod
   become: yes
+  become_user: root
 
   roles:
     - apache

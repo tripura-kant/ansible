@@ -1,0 +1,8 @@
+# /home/tom/ansible/apache.yml
+
+- name: Configure Apache on prod hosts
+  hosts: prod
+  become: yes
+
+  roles:
+    - apache

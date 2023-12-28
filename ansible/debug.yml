@@ -1,0 +1,8 @@
+--- 
+- hosts: localhost
+  become: no
+  tasks:
+      - name: Dispaly free memory
+        debug:
+          msg: "Free memory for this system is {{ ansible_facts['memfree_mb'] }}"
+          

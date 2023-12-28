@@ -1,0 +1,13 @@
+--- 
+- hosts: ec2
+  become: true
+  become_user: root
+  tasks: 
+        - name: Installation of HTTPD Package
+          yum:
+              name: httpd
+              state: present
+          register: results_output
+        - name: Display the result of results_output
+          debug: 
+            var: results_output      

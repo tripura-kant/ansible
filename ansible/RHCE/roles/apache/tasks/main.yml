@@ -1,0 +1,26 @@
+# /home/tom/ansible/roles/new-apache/tasks/main.yml
+
+- name: Enable and start httpd
+  ansible.builtin.service:
+    name: httpd
+    state: started
+    enabled: yes
+
+- name: Enable and start the firewall
+  ansible.builtin.service:
+    name: firewalld
+    state: started
+    enabled: yes
+
+- name: Allow webserver service
+  ansible.builtin.firewalld:
+    service: http
+    permanent: yes
+    state: enabled
+
+- name: Copy index.html template
+  ansible.builtin.template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+  notify:
+    - Restart httpd

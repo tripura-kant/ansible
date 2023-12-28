@@ -10,7 +10,7 @@
         package: httpd
         service: httpd
       when: ansible_facts['os_family'] == 'RedHat'  
-    - name: import the firewall task file
+    - name: import the firewall task file 1
       import_tasks: tasks/filewall.yaml
       vars:
         firewall_pkg: firewalld

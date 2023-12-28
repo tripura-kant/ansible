@@ -1,10 +1,9 @@
 --- 
-- hosts: ec2
+- hosts: ec2_instance-1
   become: true
   become_user: root
   tasks:
       - name: Fetch file 
         fetch:
-          src: /tmp/test.log
+          src: /tmp/jwt-attachroleV4.2.sh
           dest: /Users/tripurakant/Google Drive/My Drive/log-files
-

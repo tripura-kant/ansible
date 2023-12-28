@@ -1,0 +1,4 @@
+---
+# handlers file for /Users/tripurakant/scripts/ansible/ansible/ansible/roles/apache
+    - name: Restart apache
+      service: name=httpd state=restarted enabled=true

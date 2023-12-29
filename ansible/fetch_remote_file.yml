@@ -5,5 +5,5 @@
   tasks:
       - name: Fetch file 
         fetch:
-          src: /tmp/jwt-attachroleV4.2.sh
+          src: /build/download-package.sh
           dest: /Users/tripurakant/Google Drive/My Drive/log-files

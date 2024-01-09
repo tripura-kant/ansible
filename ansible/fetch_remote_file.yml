@@ -1,9 +1,9 @@
 --- 
-- hosts: ec2
+- hosts: ec2_instances
   become: true
   become_user: root
   tasks:
       - name: Fetch file 
         fetch:
-          src: /build/download-package.sh
-          dest: /Users/tripurakant/Google Drive/My Drive/log-files
+          src: /etc/nginx/ssl/zoomusg104152023.key
+          dest: /Users/tripurakant/9janssl

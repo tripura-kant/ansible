@@ -1,0 +1,17 @@
+---
+- name: "My First Playbook"
+  hosts: ec2
+  become_user: ec2-user
+
+  tasks:
+    - name: Install Apache on Red Hat
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start Apache service
+      service:
+        name: httpd
+        state: started
+    
+

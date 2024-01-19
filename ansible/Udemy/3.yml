@@ -1,0 +1,14 @@
+---
+- name: "My First Playbook"
+  hosts: localhost
+  #become: yes
+
+  tasks:
+
+
+    - name: Install Apache using Homebrew
+      homebrew:
+        name: apache2
+
+    - name: Start Apache service
+      command: brew services stop apache2

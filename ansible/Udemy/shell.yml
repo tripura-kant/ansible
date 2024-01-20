@@ -1,0 +1,15 @@
+---
+- name: "My First Playbook"
+  hosts: ec2
+  become_user: root
+  become: yes
+
+  tasks:
+    - name: run command 
+      command: echo "I am created by Tripura kant" > /tmp/tripura.sh
+    - name: Copy file
+      copy:
+        src: /Users/tripurakant/scripts/ansible/ansible/ansible/Udemy/script.sh
+        dest: /tmp
+    - name: run script
+      shell: "/tmp/script.sh"

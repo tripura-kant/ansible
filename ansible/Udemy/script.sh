@@ -1,0 +1,1 @@
+echo "I am created by Tripura kant" > /tmp/tripura.txt

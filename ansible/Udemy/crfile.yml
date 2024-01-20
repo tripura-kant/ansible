@@ -7,7 +7,7 @@
   tasks:
     - name: Create file/directory
       file:
-        path: /tmp/Udemy/NewPlayboo
+        path: /tmp/Udemy/NewPlaybook
         owner: root
         mode: 770
         state: directory

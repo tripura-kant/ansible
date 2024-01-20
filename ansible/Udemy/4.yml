@@ -10,7 +10,7 @@
         name: httpd
         state: present
 
-    - name: Start Apache service
+    - name: Start Apache services
       service:
         name: httpd
         state: started

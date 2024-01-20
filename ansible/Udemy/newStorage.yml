@@ -1,0 +1,26 @@
+---
+- name: "My First Playbook"
+  hosts: ec2
+  become_user: root
+  become: yes
+
+  tasks:
+    - name: Create new Partition
+      parted:
+        name: files
+        label: gpt
+        device: /dev/sdb
+        number: 1
+        state: present
+        part_start: 1MiB
+        part_end: 1GiB
+
+    - name: xfs
+      filesystem: 
+        dev: /dev/sdb1
+        fstype: xfs 
+
+    - name: Create mount directory
+      file:
+        path: /data
+        state: directory

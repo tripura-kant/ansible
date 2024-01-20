@@ -1,0 +1,13 @@
+---
+- name: "My First Playbook"
+  hosts: ec2
+  become_user: root
+  become: yes
+
+  tasks:
+    - name: Change Permission
+      file:
+        path: /tmp/Udemy/4.yml
+        mode: a+x
+
+

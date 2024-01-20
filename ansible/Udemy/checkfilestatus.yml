@@ -1,0 +1,16 @@
+---
+- name: "My First Playbook"
+  hosts: ec2
+  become_user: root
+  become: yes
+
+  tasks:
+    - name: Check file status and attritubetes
+      stat:
+        path: /tmp/Udemy/4.yml
+      register: fs
+
+    - name: Show results
+      debug:
+        msg: File attributes {{ fs }}
+

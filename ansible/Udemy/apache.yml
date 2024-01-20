@@ -1,0 +1,31 @@
+---
+- name: "My First Playbook"
+  hosts: ec2
+  become_user: root
+  become: yes
+
+  tasks:
+    - name: Setup httpd and open firewall port
+      yum:
+        name: httpd
+        state: present
+
+    - name: Setup firewalld
+      yum:
+        name: firewalld
+        state: present       
+
+    - name: start httpd
+      service:
+        name: httpd
+        state: started
+
+    - name: Setup httpd and open firewall port
+      yum:
+        name: httpd
+        state: present            
+
+    - name: Restart httpd service
+      service:
+        name: firewalld
+        state: reloaded

@@ -1,0 +1,23 @@
+---
+- name: "My First Playbook"
+  hosts: ec2
+  become_user: root
+  become: yes
+
+  tasks:
+    - name: Create file/directory
+      file:
+        path: /tmp/Udemy/NewPlayboo
+        owner: root
+        mode: 770
+        state: directory
+
+    - name: Create file/directory
+      file:
+        path: /tmp/Udemy/NewPlaybok.txt
+        state: touch
+
+    - name: Create file/directory
+      file:
+        path: /tmp/Udemy/
+        state: absent

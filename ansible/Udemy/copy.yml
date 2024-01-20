@@ -1,0 +1,13 @@
+---
+- name: "My First Playbook"
+  hosts: ec2
+  become_user: root
+  become: yes
+
+  tasks:
+    - name: Copy file
+      copy:
+        src: /Users/tripurakant/scripts/ansible/ansible/ansible/Udemy/copy.yml
+        dest: /tmp
+
+

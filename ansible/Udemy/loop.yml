@@ -1,0 +1,15 @@
+---
+- name: "My First Playbook"
+  hosts: ec2
+  become_user: root
+  become: yes
+
+  tasks:
+    - name: Create user
+      user:
+        name: "{{ item }}"
+      loop:
+            - "jerry"
+            - "monu"
+            - "rahul"
+

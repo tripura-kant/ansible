@@ -1,0 +1,14 @@
+
+    - name: Install Apache on Ubuntu server
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == 'Ubuntu'
+
+    - name: Install Apache on RedHat server
+      yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == 'RedHat'
+      become: yes
+      become_user: root

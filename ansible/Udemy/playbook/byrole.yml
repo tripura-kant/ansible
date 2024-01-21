@@ -1,0 +1,13 @@
+# playbook.yml
+
+- name: "My First Playbook"
+  hosts: ec2
+  become_user: root
+  become: yes  
+  roles:
+    - basicinstall
+
+- name: "My Second Playbook"
+  hosts: ec2
+  roles:
+    - fullinstall

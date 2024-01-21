@@ -1,0 +1,14 @@
+---
+- name: "My First Playbook"
+  hosts: ec2
+  become_user: root
+  become: yes
+  vars:
+    packages: [ftp, telnet, firewalld]
+
+  tasks:
+    - name: Install packages
+      yum:
+        name: "{{ packages }}"
+        state: present
+

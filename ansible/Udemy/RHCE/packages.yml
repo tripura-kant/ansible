@@ -1,0 +1,24 @@
+---
+- name: Package Managemnt Ansible Playbook
+  hosts: all
+  tasks:
+    - name: install the packages
+      dnf:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - php
+        - mariadb
+      when: inventory_hostname in groups['dev']
+        
+    - name: Install the RPM package tool
+      dnf:
+        name: "@RPM Development tools"
+        state: present
+      when: inventory_hostname in groups['dev']  
+
+    - name: Update all packages
+      dnf:
+        name: "*"
+        state: latest
+      when: inventory_hostname in groups['dev']      

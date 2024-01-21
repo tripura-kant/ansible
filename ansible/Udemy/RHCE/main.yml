@@ -1,0 +1,5 @@
+---
+- name: Apache Roles Playbook
+  hosts: webservers
+  roles:
+    - role: /Users/tripurakant/scripts/ansible/ansible/ansible/Udemy/RHCE/roles/apache
